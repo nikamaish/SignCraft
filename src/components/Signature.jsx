@@ -7,7 +7,28 @@ const Signature = () => {
     const [format, setFormat] = useState("pdf");
 
     return (
-        <div>
+
+        <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6"
+        >
+
+
+            <div className="flex flex-col md:flex-row gap-6">
+
+
+                <div className="flex-1">
+                    <canvas
+                        //   ref={canvasRef}
+                        className="w-full h-48 bg-gradient-to-b from-white to-slate-50 cursor-crosshair"
+                        style={{ touchAction: "none" }}
+                    />
+                </div>
+                <p className="mt-2 text-xs text-gray-400">Use mouse or touch to sign. Tap Clear to restart.</p>
+
+            </div>
 
             <aside className="w-full md:w-64 flex flex-col gap-3">
                 <div className='flex items-center gap-2'>
@@ -45,8 +66,7 @@ const Signature = () => {
                     Tip: For documents use <strong>PDF</strong>. For images use <strong>JPEG</strong>.
                 </motion.div>
             </aside>
-
-        </div>
+        </motion.section >
     )
 }
 
